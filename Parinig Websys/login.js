@@ -8,7 +8,7 @@
 
     if (email === 'jayveemirano09@gmail.com' && password === 'jayvee@123') {
       message.style.color = "green";
-      message.textContent = "Login successful! Welcome, " + username + ".";
+      message.textContent = "Login successful!"
       window.location.href = "dashboard.html";
     } else {
       message.style.color = "red";

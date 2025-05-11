@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h4></h4>
+        <div class="user-dropdown">
+            <button class="dropdown-button" id="dropdownButton">Admin</button>
+            <div class="dropdown-menu">
+                <a href="profile.php">Profile</a>
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="menu-content open" id="menuContent">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <main>
+      
+        <div class="announcement-form">
+            <form  id="announcementForm">
+                <input type="text" id="announcementTitle" name="title" placeholder="Announcement Title" required>
+                
+                <textarea id="announcementMessage" name="message" rows="4" placeholder="What would you like to announce?" required></textarea>
+                
+                <button type="submit" name="submitAnnouncement">Post</button>
+            </form>
+        </div>
+        
+        <h3>Recent Post</h3>
+        
+        <div class="announcement-list">
+            <!-- Example announcements -->
+            <div class="announcement">
+                <div class="user-info">
+                    <img src="claire redfield.jpg" alt="User Avatar">
+                    <h4 id="user-name">Claire Redfield</h4>
+                </div>
+                <h4>Pareh Mahal mo raw ako?</h4>
+                <small>Posted on: April 28, 2025, 10:30 am</small>
+                <p>The system will be down for maintenance on Saturday, May 3rd from 2-4 AM. Please save all work before this time as the system will be unavailable during the maintenance window.</p>
+                <hr>
+                <div class="reactions">
+                    <button class="like-button">Like</button>
+                    <button class="comment-button">Comment</button>
+                   
+                </div>
+            </div>
+            <div class="new-post" id="announcementList">
+                
+            </div>
+            
+          
+            </div>
+        </div>
+    </main>
+   
+
+    <script>
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const menuContent = document.getElementById('menuContent');
+        
+        hamburgerMenu.addEventListener('click', () => {
+            menuContent.classList.toggle('open');
+        });
+        
+        const closeBtn = document.getElementById('closeBtn');
+        closeBtn.addEventListener('click', () => {
+            menuContent.classList.remove('open');
+        });
+        
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        
+        dropdownButton.addEventListener('click', () => {
+            dropdownButton.parentElement.classList.toggle('open');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!dropdownButton.parentElement.contains(e.target)) {
+                dropdownButton.parentElement.classList.remove('open');
+            }
+        });
+
+
+
+        
+// Event listener for form submission
+document.getElementById('announcementForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting the default way
+
+    // Get form input values
+    const title = document.getElementById('announcementTitle').value;
+    const message = document.getElementById('announcementMessage').value;
+
+    // Create a new post
+    createAnnouncementPost(title, message);
+
+    // Clear the form after submission
+    document.getElementById('announcementTitle').value = '';
+    document.getElementById('announcementMessage').value = '';
+});
+
+// Function to create and display a new announcement post
+function createAnnouncementPost(title, message) {
+    // Create the new post element
+    const post = document.createElement('div');
+    post.classList.add('announcement');
+
+    // Create user info section
+    const userInfo = document.createElement('div');
+    userInfo.classList.add('user-info');
+
+    const avatar = document.createElement('img');
+    avatar.src = 'claire redfield.jpg'; // Placeholder avatar
+    avatar.alt = 'User Avatar';
+
+    const userName = document.createElement('h4');
+    userName.id = 'user-name';
+    userName.textContent = 'Claire Redfield'; // Static user name (you could make this dynamic)
+
+    userInfo.appendChild(avatar);
+    userInfo.appendChild(userName);
+
+    // Create title, date, and message content
+    const postTitle = document.createElement('h4');
+    postTitle.textContent = title;
+
+    const postDate = document.createElement('small');
+    postDate.textContent = `Posted on: ${new Date().toLocaleString()}`;
+
+    const postMessage = document.createElement('p');
+    postMessage.textContent = message;
+
+    // Create reactions section (buttons)
+    const reactions = document.createElement('div');
+    reactions.classList.add('reactions');
+
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('like-button');
+    likeButton.textContent = 'Like';
+
+    const commentButton = document.createElement('button');
+    commentButton.classList.add('comment-button');
+    commentButton.textContent = 'Comment';
+
+    reactions.appendChild(likeButton);
+    reactions.appendChild(commentButton);
+
+    // Append all parts to the post
+    post.appendChild(userInfo);
+    post.appendChild(postTitle);
+    post.appendChild(postDate);
+    post.appendChild(postMessage);
+    post.appendChild(reactions);
+
+    // Append the new post to the announcement list
+    document.getElementById('announcementList').prepend(post); // Adds the new post at the top
+    return false; // Prevents form submission
+}
+
+    </script>
