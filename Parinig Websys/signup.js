@@ -4,7 +4,7 @@ function signup() {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
   const message = document.getElementById("message");
-  const confirmPassword = document.getElementById("confirm-password").value.trim();
+  const confirmPassword = document.getElementById("confirm_password").value.trim();
 
   
   if  (/\d/.test(username))  {  
@@ -20,11 +20,13 @@ function signup() {
     return false;
   }
   
-  if (password !== confirmPassword) {
-    message.style.color = "red";
-    message.textContent = "Passwords do not match!";
-    return false;
-  }
+if (password !== confirmPassword) {
+  console.warn("Mismatch:", password, confirmPassword);
+  message.style.color = "red";
+  message.textContent = "Passwords do not match!";
+  return false;
+}
+
 
   if (users[username]) {
     message.style.color = "red";
