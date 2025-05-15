@@ -10,13 +10,19 @@
         header {
             background-color: #B9CDED; /* Orange color */
             color: #fff; /* White text for contrast */
-            padding: 10px;
+            padding: 10px 25px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            position: fixed;
+            top: 0;        /* Stick to top */
+            left: 0;       /* Start from left edge */
+            width: 100%;   /* Full width */
+            z-index: 1000; /* Stay on top of other elements */
         }
+        
 
         .hamburger-menu {
             display: inline-block;
@@ -51,6 +57,7 @@
 
         /* Menu */
         .menu-content {
+            margin-top: 64px;
             position: fixed;
             top: 0;
             left: -250px;
@@ -63,7 +70,7 @@
             transition: left 0.3s ease;
             padding: 20px;
             visibility: hidden;
-            z-index: -1;
+          
         }
 
         .menu-content.open {
@@ -77,17 +84,25 @@
         }
 
         .menu-content ul li {
+            border-bottom: 1px solid #424242;              
             margin: 15px 0;
+            padding: 5px 0;
+            
         }
 
         .menu-content ul li a {
+            
             color: #000000;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 25px;
             border-bottom-width: 1px solid #464646;
             padding: 5px 10px;
             display: inline-block;
             text-align: center;
+        }
+        #top-menu {
+           
+            margin-top: 50px;
         }
 
         ul li a:hover {
@@ -171,6 +186,37 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .list-attorn {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px;
+            scrollbar-width: thin;
+            margin-bottom: 20px;
+          }
+          
+          .attorn-profile {
+            text-align: center;
+            flex-shrink: 0;
+          }
+          
+          .attorn-profile img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+          }
+          
+          .attorney-name {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #333;
+          }
+          
 
         .announcement-form h3 {
             font-size: 16px;
@@ -246,6 +292,9 @@
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             
             
+        }
+        a {
+            color: black;
         }
         .user-info {
             display: flex;

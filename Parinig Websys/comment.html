@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comment - Shattered Silence</title>
+  <link rel="stylesheet" href="comment.css" />
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h4></h4>
+        <div class="user-dropdown">
+            <button class="dropdown-button" id="dropdownButton">Profile</button>
+            <div class="dropdown-menu">
+                <a href="profile.php">Profile</a>
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="menu-content open" id="menuContent">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <ul>
+            <li id="top-menu"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="attorney.html">Attorney</a></li>
+        </ul>
+    </div>
+    <main>
+  <div class="comment-container">
+    <!-- USER INFO + POST -->
+    <div class="user-info">
+      <img src="claire redfield.jpg" alt="User Avatar" class="avatar">
+      <h4 id="user-name">Claire Redfield</h4>
+    </div>
+
+    <div class="post">
+      <h2>Shattered Silence</h2>
+      <small>Posted on: April 28, 2025, 10:30 am</small>
+      <p>
+        I was only seventeen when it happened...<br><br>
+        
+        I want others to know: It wasn’t your fault. Your voice matters. And healing is possible.
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- REACTIONS -->
+    <div class="reactions">
+      <button class="like-button">Like</button>
+      <button class="comment-button">Comment</button>
+    </div>
+
+    <!-- WRITE A COMMENT -->
+    <div class="write-comment">
+      <h4>Write a comment</h4>
+      <textarea  id="commentInput"placeholder="Share your thoughts..." rows="4"></textarea>
+      <div id="error" style="color:red; margin-top: 5px;"></div>
+      <button class="submit-comment" onclick="addComment()">Post Comment</button>
+    </div>
+
+    <!-- EXAMPLE COMMENTS -->
+    <div class="comments-section" id="comments">
+      <h4>Comments</h4>
+
+      <div class="comment">
+        <strong>Leon Kennedy</strong>
+        <small>April 28, 2025, 11:00 am</small>
+        <p>Thank you for sharing your story, Claire. It takes real courage to speak up. You're not alone.</p>
+      </div>
+
+      <div class="comment">
+        <strong>Jill Valentine</strong>
+        <small>April 28, 2025, 11:12 am</small>
+        <p>This really moved me. You're inspiring so many people by being honest and vulnerable.</p>
+      </div>
+    </div>
+  </div>
+    </main>
+  <script src="comment.js"></script>
+  <script src="menu.js"></script>
+</body>
+
+</html>
