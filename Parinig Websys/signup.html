@@ -10,15 +10,17 @@
     <div class="form-container">
         <h2>Signup</h2>
         <form action="#" onsubmit=" return signup()">
-            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="text" name="username" id="username" placeholder="Name" required>
             <input type="email" name="email" id="email" placeholder="Email" required>
+            
             <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
             <button type="submit">Signup</button>
             <p id="message"></p>
 
         </form>
         <div class="signup-link">
-            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            <p> have an account? <a href="login.html">Sign in</a></p>
         </div>
     </div>
 <script src="signup.js"></script>

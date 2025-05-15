@@ -39,7 +39,7 @@ async function login(event) {
 function fakeServerLogin(username, password) {
   return new Promise((resolve) => {
     setTimeout(() => {
-      if (username === 'admin' && password === 'SecurePass123!') {
+      if (username === 'jayveemirano' && password === 'SecurePass123!') {
         resolve({ success: true, message: 'Login successful!' });
       } else {
         resolve({ success: false, message: 'Invalid credentials!' });
